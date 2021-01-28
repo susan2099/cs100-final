@@ -7,10 +7,15 @@
 Authors: [Susan Noori](https://github.com/susan2099), [Lunette Si](https://github.com/lunettesi), [Henry Moore](https://github.com/hmoorerg)
 
 ## Project Description
+### Why is it important or interesting to you?
 It is important, when it comes to creating and grading, that quizzes are efficient. Sometimes, when taking online quizzes, connectivity issues arise and the student loses all of their progress. By allowing teachers to directly upload the test file, the student can answer it no matter where they are, alleviating this issue. Additionally, this quiz maker can be used for fun events like trivia games, where the questions are more focused on interesting facts. 
+### What languages/tools/technologies do you plan to use?
 We will primarily be using C++ for our project. 
+### What will be the input/output of your project?
 First, a teacher user will input a file including all of the questions and the accepted answers. The questions can be multiple choice, true/false, and free response; for all questions except free response, the correct answer would also be included. Then, a student user can take the uploaded quiz. Each question will be displayed, and once the user types in their answer, the next question would show up, until the quiz is finished. Once the quiz is completed, the program will then display all the questions again, this time with both the user's answers and the correct answer.
+### What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
 One of the design patterns we will be using is the Composite pattern. Our problem is that the application will have to split questions into different sections. By using the composite pattern, we can draw questions outside of sections in the same way that we draw questions inside of sections by calling the draw method that will exist in the section class and question class. 
+
 The other design pattern we will use is the Abstract Factory. We chose this pattern so we can make question pools using a variety of file types (such as JSON or CSV) by just changing the factory and not the rest of the core logic. To clarify, the problem that we are solving is handling different file types that contain our quiz questions. An abstract factory solves this issue by making it simple to add new file types by reducing coupling to our question bank class implementation.
 
  > ## Phase II
