@@ -13,16 +13,6 @@ One of the design patterns we will be using is the Composite pattern. Our proble
 
 The other design pattern we will use is the Abstract Factory. We chose this pattern so we can make question pools using a variety of file types (such as JSON or CSV) by just changing the factory and not the rest of the core logic. Because there are multiple file types that can contain our quiz questions, it is essential that we do not directly rely on individual file types. An abstract factory solves this issue by making it simple to add new file types by reducing coupling to our question bank class implementation, we simply ask the factory for a type of question bank and it retrieves the correct class and returns it. Although the project will currently only use the factory to handle different question bank filetypes, in the future this pattern would give us the opportunity to create question factories for non-file situations such as by using an online question bank (using something such as tcp) or a random question generator without major changes to the code outside of the abstract factory.
 
- > ## Phase II
- > In addition to completing the "Class Diagram" section below, you will need to 
- > * Set up your GitHub project board as a Kanban board for the project. It should have columns that map roughly to 
- >   * Backlog, TODO, In progress, In testing, Done
- >   * You can change these or add more if you'd like, but we should be able to identify at least these.
- > * There is no requirement for automation in the project board but feel free to explore those options.
- > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
- > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
- >   * Create smaller development tasks as issues and assign them to team members. Place these in the `Backlog` column.
- >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
  We will be using the Composite pattern (at the top of the diagram) as well as the Strategy pattern (below the composite pattern on the diagram) in this project. 
 
