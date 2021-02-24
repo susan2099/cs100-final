@@ -2,7 +2,8 @@
 #define _QUESTION_BANK_READER
 #include "QuizElement.hpp"
 
-public interface ImportStrategy {
+class QuestionBankReader {
+    public:
 	std::vec<QuizElement> GetQuestions(string fileName);
 };
 
