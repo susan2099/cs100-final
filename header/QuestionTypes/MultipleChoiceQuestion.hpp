@@ -2,10 +2,10 @@
 #include "../Question.hpp"
 #include <iostream>
 
-class TrueFalseQuestion : public Question
+class MultipleChoiceQuestion : public Question
 {
     public:
-    TrueFalseQuestion(std::string description, std::string answer) : Question(description, answer){}
+    MultipleChoiceQuestion(std::string description, std::string answer) : Question(description, answer){}
 
     bool IsAnswerCorrect(std::string input){
         return input == answer;
@@ -17,7 +17,7 @@ class TrueFalseQuestion : public Question
     }
 
     virtual void do_quiz(){
-        std::cout << "True or False?:" << std::endl;
+        std::cout << "Which of these choices is correct?" << std::endl;
         display(false);
         std::string result;
         std::cin >> result;
