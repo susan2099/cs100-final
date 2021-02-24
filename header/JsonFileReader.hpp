@@ -6,15 +6,17 @@
 #include <vector>
 class JsonStrategy: QuestionBankReader {
    public:
-	std::vec<QuizElement>GetQuestions(string filename) {
-		std::vector<QuizElement> JsonVector;
+		std::vector<QuizElement*>GetQuestions(std::string filename) {
+		std::vector<QuizElement*> JsonVector;
 		std::ifstream json(filename);
-		QuizElement individualQuestion;
+		QuizElement* individualQuestion;
 		while(!json.eof()) {
+			//This doesn't look like JSON yet
+			//Here is what JSON looks like: https://www.w3schools.com/whatis/whatis_json.asp
 			jsonVector.push_back(getline(filename, individualQuestion));
 		}
 		json.close();
-		return jsonVector[]; 
+		return jsonVector; 
 };
 
 #endif

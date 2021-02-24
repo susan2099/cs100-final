@@ -2,9 +2,10 @@
 #define _QUESTION_BANK_READER
 #include "QuizElement.hpp"
 
+
 class QuestionBankReader {
     public:
-	std::vec<QuizElement> GetQuestions(string fileName);
+	std::vector<QuizElement> GetQuestions(std::string fileName);
 };
 
 #endif //QUESTION_BANK_READER
