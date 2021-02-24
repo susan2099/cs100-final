@@ -3,6 +3,7 @@
 
 class QuizElement
 {
+    public:
     virtual void display(bool includeAnswer) = 0;
     virtual void do_quiz() = 0;
 };
