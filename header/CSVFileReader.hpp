@@ -12,23 +12,18 @@
 using namespace std;
 
 class CSVFileReader : public QuestionBankReader {
-/*    private:
-	std::string questionType;
-	std::string description;
-	std::string answer; */
     public:
 	std::vector<QuizElement*> GetQuestions(string filename) {
 	    std::vector<QuizElement*> CSVFileQuestions; // initialize empty vector
 	    QuizElement* individualQuestion; // = new Question();
 	    std::ifstream quizFile(filename);	// open file	    
 
-	    std::cout << "Before while" << std::endl;
 	    while (!quizFile.eof()) { // end of file not reached
 		// add a count to number every question?
 		// file set up: TYPE, description, answer
 		string questionLine;
 		std::getline(quizFile, questionLine);
-		std::cout << questionLine << std::endl;
+		//std::cout << questionLine << std::endl << std::endl;
 
 		std::stringstream ss(questionLine);
 		
@@ -37,7 +32,7 @@ class CSVFileReader : public QuestionBankReader {
 		std::getline(ss, desc, ',');		 
 		std::getline(ss, answer, ',');
 
-		std::cout << type << "   " << desc << "   " << answer << std::endl;
+		//std::cout << type << "   " << desc << "   " << answer << std::endl;
 
 		if (type == "MC") {
 		    CSVFileQuestions.push_back(new MultipleChoiceQuestion(desc, answer));
@@ -49,8 +44,8 @@ class CSVFileReader : public QuestionBankReader {
 		    CSVFileQuestions.push_back(new FillInTheBlankQuestion(desc, answer));
 		}
 		// else ==> error message?
-
 	    }
+	    //std::cout << CSVFileQuestions.size() << endl;
 	    return CSVFileQuestions;	// return the filled vector
 	}
 };
