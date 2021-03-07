@@ -32,13 +32,21 @@ public:
         std::cout << "----End of Section----" << SectionName << std::endl;
 
     };
-    virtual void do_quiz(){
+    virtual int do_quiz(){
         std::cout << "----Starting Quiz Section----" << SectionName << std::endl;
         for (auto element : ChildElements){
             element->do_quiz();
         }
         std::cout << "----End of Quiz Section----" << SectionName << std::endl;
+	return 0;
     }
+   virtual int total_score() {
+	int totalScore = 0;
+	for(auto element : ChildElements) {
+	   totalScore += element->do_quiz();
+	}
+	return totalScore;
+    } 
 };
 
 #endif // SECTION_H 

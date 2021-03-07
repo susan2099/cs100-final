@@ -22,6 +22,9 @@ class Question : public QuizElement
     {
         return answer;
     }
+    virtual int total_score() {
+	return 1;
+    }
 };
 
 #endif

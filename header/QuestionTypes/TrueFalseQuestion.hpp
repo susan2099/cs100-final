@@ -16,16 +16,19 @@ class TrueFalseQuestion : public Question
         if (includeAnswer) std::cout << "Answer:" << answer << std::endl;
     }
 
-    virtual void do_quiz(){
+    virtual int do_quiz(){
         std::cout << "True or False?:" << std::endl;
         display(false);
         std::string result;
         std::cin >> result;
         bool isCorrect = IsAnswerCorrect(result);
+	int score = 0;
         if (isCorrect){
+	    score++;
             std::cout << "Correct" << std::endl;
         } else {
             std::cout << "Incorrect" << std::endl;
         }
+	return score;
     }
 };
