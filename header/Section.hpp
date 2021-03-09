@@ -17,27 +17,27 @@ public:
         ChildElements = childElements;
     }
 
-    virtual void display(bool includeAnswer){
+    virtual void display(bool includeAnswer, std::ostream& out = std::cout){
 
 
-        std::cout << "----Displaying Section" << SectionName;
+        out << "----Displaying Section" << SectionName;
         if (includeAnswer) {
-            std::cout << " with answers";
+            out << " with answers";
         }
-        std::cout << "----" << std::endl;
+        out << "----" << std::endl;
 
         for (auto element : ChildElements){
-            element->display(includeAnswer);
+            element->display(includeAnswer, out);
         }
-        std::cout << "----End of Section----" << SectionName << std::endl;
+        out << "----End of Section----" << SectionName << std::endl;
 
     };
-    virtual void do_quiz(){
-        std::cout << "----Starting Quiz Section----" << SectionName << std::endl;
+    virtual void do_quiz(std::ostream& out = std::cout, std::istream& in = std::cin){
+        out << "----Starting Quiz Section----" << SectionName << std::endl;
         for (auto element : ChildElements){
-            element->do_quiz();
+            element->do_quiz(out, in);
         }
-        std::cout << "----End of Quiz Section----" << SectionName << std::endl;
+        out << "----End of Quiz Section----" << SectionName << std::endl;
     }
 };
 

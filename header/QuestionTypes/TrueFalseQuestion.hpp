@@ -11,21 +11,21 @@ class TrueFalseQuestion : public Question
         return input == answer;
     }
 
-    virtual void display(bool includeAnswer){
-        std::cout << description << std::endl;
-        if (includeAnswer) std::cout << "Answer:" << answer << std::endl;
+    virtual void display(bool includeAnswer, std::ostream& out = std::cout){
+        out << description << std::endl;
+        if (includeAnswer) out << "Answer:" << answer << std::endl;
     }
 
-    virtual void do_quiz(){
-        std::cout << "True or False?:" << std::endl;
-        display(false);
+    virtual void do_quiz(std::ostream& out = std::cout, std::istream& in = std::cin){
+        out << "True or False?:" << std::endl;
+        display(false, out);
         std::string result;
-        std::cin >> result;
+        in >> result;
         bool isCorrect = IsAnswerCorrect(result);
         if (isCorrect){
-            std::cout << "Correct" << std::endl;
+            out << "Correct" << std::endl;
         } else {
-            std::cout << "Incorrect" << std::endl;
+            out << "Incorrect" << std::endl;
         }
     }
 };
