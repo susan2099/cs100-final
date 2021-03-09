@@ -7,11 +7,31 @@
 #include <vector>
 #include "header/QuestionBankReader.hpp"
 #include "header/CSVFileReader.hpp"
+//#include "header/JsonFileReader.hpp"
 
-int main(int argv, char** argc){
-    std::string filename = "example.csv";
+int main(int argc, char** argv){
+    //std::string filename = "example.csv";
+    std::string filename = argv[1];
     CSVFileReader CSV;
-    CSV.GetQuestions(filename);
+    std::vector<QuizElement*> qVec;
+
+    if ((filename.substr(filename.length() - 4, filename.length())) == ".csv") {
+	CSVFileReader CSV;
+	qVec = CSV.GetQuestions(filename);
+    }/*
+    else if ((filename.substr(filename.length() - 5, filename.length())) == ".json") {
+	JsonFileReader JSON;
+	qVec = JSON.GetQuestions(filename);
+    }*/
+    else {
+	std::cout << "Invalid filetype. Please submit a different quiz." << std::endl;
+    }
+
+    //std::vector<QuizElement*> qVec = CSV.GetQuestions(filename);
+
+    Section SectionOne("Section One", qVec);
+    SectionOne.display(true);
+    SectionOne.do_quiz();
 
     return 0;
 }
