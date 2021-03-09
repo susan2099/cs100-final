@@ -2,10 +2,10 @@
 #include "../Question.hpp"
 #include <iostream>
 
-class TrueFalseQuestion : public Question
+class FillInTheBlankQuestion : public Question
 {
     public:
-    TrueFalseQuestion(std::string description, std::string answer) : Question(description, answer){}
+    FillInTheBlankQuestion(std::string description, std::string answer) : Question(description, answer){}
 
     bool IsAnswerCorrect(std::string input){
         return input == answer;
@@ -16,8 +16,9 @@ class TrueFalseQuestion : public Question
         if (includeAnswer) out << "Answer:" << answer << std::endl;
     }
 
+
     virtual int do_quiz(std::ostream& out = std::cout, std::istream& in = std::cin){
-        out << "True or False?:" << std::endl;
+        out << "Fill in the blank:" << std::endl;
         display(false, out);
         std::string result;
         in >> result;
@@ -27,7 +28,7 @@ class TrueFalseQuestion : public Question
             return 1;
         } else {
             out << "Incorrect" << std::endl;
+            return 0;
         }
-        return 0;
     }
 };

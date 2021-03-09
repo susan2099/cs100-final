@@ -1,13 +1,19 @@
+#ifndef QUESTION_H
+#define QUESTION_H
+
 #include "QuizElement.hpp"
 #include <string>
 
-class Question : public QuizElement 
+class Question : public QuizElement
 {
-    protected:
+protected:
+    std::string description;
     std::string answer;
-    public:
 
-    Question(std::string answer){
+public:
+    Question(std::string description, std::string answer)
+    {
+        this->description = description;
         this->answer = answer;
     }
 
@@ -16,4 +22,10 @@ class Question : public QuizElement
     {
         return answer;
     }
+    virtual int total_score()
+    {
+        return 1;
+    }
 };
+
+#endif
