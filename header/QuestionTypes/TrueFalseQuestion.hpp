@@ -16,7 +16,7 @@ class TrueFalseQuestion : public Question
         if (includeAnswer) out << "Answer:" << answer << std::endl;
     }
 
-    virtual void do_quiz(std::ostream& out = std::cout, std::istream& in = std::cin){
+    virtual int do_quiz(std::ostream& out = std::cout, std::istream& in = std::cin){
         out << "True or False?:" << std::endl;
         display(false, out);
         std::string result;
@@ -24,8 +24,10 @@ class TrueFalseQuestion : public Question
         bool isCorrect = IsAnswerCorrect(result);
         if (isCorrect){
             out << "Correct" << std::endl;
+            return 1;
         } else {
             out << "Incorrect" << std::endl;
         }
+        return 0;
     }
 };
