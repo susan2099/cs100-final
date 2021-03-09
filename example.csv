@@ -1,0 +1,6 @@
+MC,What year is it? A: 2020; B: 2021; C: 2022; D: 2023,B
+TF,The sky is blue.,true
+Fill,What is your favorite color?,red
+MC,What is salt's chemical formula? A: H20; B: CO2; C: NaCL; D: NH3,C
+Fill,Do you like coffee?,yes
+TF,You can see the Great Wall from space.,false

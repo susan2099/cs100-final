@@ -5,14 +5,33 @@
 #include "header/QuestionTypes/FillInTheBlankQuestion.hpp"
 #include "header/Section.hpp"
 #include <vector>
+#include "header/QuestionBankReader.hpp"
+#include "header/CSVFileReader.hpp"
+//#include "header/JsonFileReader.hpp"
 
 int main(int argc, char** argv){
-    TrueFalseQuestion question("The Capitol is in Washington D.C.","True");
-    MultipleChoiceQuestion question2("What year is it? A: 2020, B: 2021, C:2022, D:1900","B");
-    FillInTheBlankQuestion question3("What is Caesar's first name?","Julius");
+    //std::string filename = "example.csv";
+    std::string filename = argv[1];
+    CSVFileReader CSV;
+    std::vector<QuizElement*> qVec;
 
-    std::vector<QuizElement*> sectionElements {&question, &question2, &question3};
-    Section SectionOne("Section One",sectionElements);
+    if ((filename.substr(filename.length() - 4, filename.length())) == ".csv") {
+	CSVFileReader CSV;
+	qVec = CSV.GetQuestions(filename);
+    }/*
+    else if ((filename.substr(filename.length() - 5, filename.length())) == ".json") {
+	JsonFileReader JSON;
+	qVec = JSON.GetQuestions(filename);
+    }*/
+    else {
+	std::cout << "Invalid filetype. Please submit a different quiz." << std::endl;
+    }
+
+    //std::vector<QuizElement*> qVec = CSV.GetQuestions(filename);
+
+    Section SectionOne("Section One", qVec);
     SectionOne.display(true);
     SectionOne.do_quiz();
+
+    return 0;
 }
