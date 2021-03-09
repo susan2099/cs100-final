@@ -22,13 +22,12 @@ class FillInTheBlankQuestion : public Question
         std::string result;
         std::cin >> result;
         bool isCorrect = IsAnswerCorrect(result);
-	int score = 0;
         if (isCorrect){
-	    score++;
+            return 1;
             std::cout << "Correct" << std::endl;
         } else {
             std::cout << "Incorrect" << std::endl;
         }
-	return score;
+        return 0;
     }
 };
