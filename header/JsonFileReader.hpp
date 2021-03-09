@@ -11,7 +11,6 @@ public:
 	{
 		std::vector<QuizElement *> jsonVector;
 
-		
 
 		return jsonVector;
 	};
