@@ -2,7 +2,6 @@
 #define __JSON_TEST_HPP__
 
 #include "gtest/gtest.h"
-
 #include "header/QuizElement.hpp"
 #include "header/Question.hpp"
 #include "header/Section.hpp"

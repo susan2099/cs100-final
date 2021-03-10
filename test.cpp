@@ -6,6 +6,7 @@
 #include "header/QuestionTypes/FillInTheBlankQuestion.hpp"
 #include "header/Section.hpp"
 #include "CSVTest.hpp"
+#include "JsonTest.hpp"
 
 class QuestionMock : public Question {
   private:
@@ -32,8 +33,6 @@ class QuestionMock : public Question {
         return 1;
     }
 };
-
-
 
 TEST(Section, RunsDisplayOnChildElements)
 {
