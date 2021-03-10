@@ -45,7 +45,6 @@ The strategy pattern allows for more flexibility in terms of file formats. We pl
  Lastly, the user can run the units tests using "./test" and check the quiz using "./quiz 'filename'.json" or "./quiz 'filename'.csv"
 
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
 We tested the QuizElement types by testing the display and running the quiz using stringstreams.
 
 We then tested the section types by creating a mock of the QuizElement type that allowed us to check that the `display()` and `do_quiz()` function were being called on all of the child elements when they are called on the Section object.
