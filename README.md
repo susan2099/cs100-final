@@ -33,9 +33,17 @@ The strategy pattern allows for more flexibility in terms of file formats. We pl
  
 ![Screen Shot 2021-03-09 at 7 27 07 PM](https://user-images.githubusercontent.com/76899884/110572165-c1264200-810d-11eb-9c6a-5f7154273ef9.png)
 
+.csv filetype output:
+
+![Screen Shot 2021-03-09 at 7 47 38 PM](https://user-images.githubusercontent.com/76899884/110676379-bceb3a80-8188-11eb-96d2-e22ecbdc4e18.png)
+
 .json filetype input:
 
 ![Screen Shot 2021-03-09 at 7 27 42 PM](https://user-images.githubusercontent.com/76899884/110572172-c4b9c900-810d-11eb-872e-c9cfbe41ad74.png)
+
+.json filetype output:
+
+![Screen Shot 2021-03-09 at 7 48 05 PM](https://user-images.githubusercontent.com/76899884/110676415-ca082980-8188-11eb-969c-a38050e9fe44.png)
 
  ## Installation/Usage
  First, the user will clone the github repository recursively on their IDE or command line using "git clone --recursive https://github.com/cs100/final-project-final-project-hmoor011-susan2099-lsi001.git". Alternatively, the user can simply clone the repository using "git clone https://github.com/cs100/final-project-final-project-hmoor011-susan2099-lsi001.git", then run "git submodule update --init --recursive" to pull the modules after the repository has been cloned.
