@@ -92,6 +92,18 @@ TEST(FillInTheBlankQuestion, MarkIncorrectAnswer)
   EXPECT_EQ(question.do_quiz(out, in), 0);
 }
 
+
+TEST(FillInTheBlankQuestion, MarkLongAnswer)
+{
+  std::stringstream out;
+  std::istringstream in("abcdefghijklmnopqrstuvwxyz\n");
+
+  FillInTheBlankQuestion question("Description", "Answer");
+
+  EXPECT_EQ(question.do_quiz(out, in), 0);
+}
+
+
 TEST(MultipleChoiceQuestion, DisplayQuestion)
 {
   std::stringstream out;
@@ -120,6 +132,56 @@ TEST(MultipleChoiceQuestion, MarkIncorrectAnswer)
   std::istringstream in("\n");
 
   MultipleChoiceQuestion question("A,B,C,D", "A");
+
+  EXPECT_EQ(question.do_quiz(out, in), 0);
+}
+
+TEST(MultipleChoiceQuestion, MarkNoAnswerChoice) {
+  std::stringstream out;
+  std::istringstream in("P\n");
+
+  MultipleChoiceQuestion question("A,B,C,D", "A");
+  
+  EXPECT_EQ(question.do_quiz(out, in), 0);
+}
+
+TEST(TrueFalseQuestion, DisplayQuestion)
+{
+  std::stringstream out;
+  std::istringstream in;
+
+  TrueFalseQuestion question("Is water blue?", "True");
+
+  question.display(false, out);
+
+  EXPECT_EQ(out.str(), "Is water blue?\n");
+}
+
+TEST(TrueFalseQuestion, CheckTrueAnswer)
+{
+  std::stringstream out;
+  std::istringstream in("True\n");
+
+  TrueFalseQuestion question("Is water blue", "True");
+
+  EXPECT_EQ(question.do_quiz(out, in), 1);
+}
+
+TEST(TrueFalseQuestion, MarkIncorrectAnswer)
+{
+  std::stringstream out;
+  std::istringstream in("False\n");
+
+  TrueFalseQuestion question("Is water blue", "True");
+
+  EXPECT_EQ(question.do_quiz(out, in), 0);
+}
+
+TEST(TrueFalseQuestion, MarkNoAnswerChoice ) {
+  std::stringstream out;
+  std::istringstream in("Hi\n");
+
+  TrueFalseQuestion question("Is water blue", "True");
 
   EXPECT_EQ(question.do_quiz(out, in), 0);
 }
