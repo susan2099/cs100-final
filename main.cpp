@@ -29,7 +29,7 @@ int main(int argc, char** argv){
 
     //std::vector<QuizElement*> qVec = CSV.GetQuestions(filename);
 
-    Section SectionOne("Section One", qVec);
+    Section SectionOne("Main", qVec);
     SectionOne.display(true);
     SectionOne.do_quiz();
 
