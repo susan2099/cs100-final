@@ -1,0 +1,17 @@
+[
+    {
+        "QuestionType":"MC",
+        "Description":"What is the largest planet in the solar system? A: Saturn; B: Mercury; C: Jupiter",
+        "Answer":"C"
+    },
+    {
+        "QuestionType":"Fill",
+        "Description":"The sun is a _____.",
+        "Answer":"star"
+    },
+    {
+        "QuestionType":"TF",
+        "Description":"Venus is the closest to Earth in size.",
+        "Answer":"True"
+    }
+]

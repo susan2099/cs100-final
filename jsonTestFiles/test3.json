@@ -1,10 +1,5 @@
 [
     {
-        "QuestionType":"TF",
-        "Description":"Is the sky green?",
-        "Answer":"False"
-    },
-    {
         "QuestionType":"Section",
         "Answer":"",
         "Description":"History Section",
