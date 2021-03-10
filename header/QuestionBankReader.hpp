@@ -8,8 +8,7 @@ using namespace std;
 
 class QuestionBankReader {
     public:
-	vector<QuizElement*> GetQuestions(string fileName);
-	//vector<int> GetQuestions(string fileName);
+		virtual vector<QuizElement*> GetQuestions(string fileName) = 0;
 };
 
 #endif //QUESTION_BANK_READER
