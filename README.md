@@ -5,7 +5,7 @@ Authors: [Susan Noori](https://github.com/susan2099), [Lunette Si](https://githu
 ### Why is it important or interesting to you?
 It is important, when it comes to creating and grading, that quizzes are efficient. Sometimes, when taking online quizzes, connectivity issues arise and the student loses all of their progress. By allowing teachers to directly upload the test file, the student can answer it no matter where they are without needing high-speed internet, alleviating this issue. Additionally, this quiz maker can also be used for fun events like trivia games, where the questions are more focused on interesting facts. 
 ### What languages/tools/technologies do you plan to use?
-We will be using C++ for our project. 
+We will be using C++ for our project. We also ended up using the  nlohmann/json with approval from the professor in order to speed up parsing development. 
 ### What will be the input/output of your project?
 First, a teacher user will input a file including all of the questions and the accepted answers. The questions can be multiple choice, true/false, and free response; for all questions except free response, the correct answer would also be included. Then, a student user can take the uploaded quiz. Each question will be displayed, and once the user types in their answer, the next question would show up, until the quiz is finished. Once the quiz is completed, the program will then display all the questions again, this time with both the user's answers and the correct answer.
 ### What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
@@ -43,4 +43,9 @@ The strategy pattern allows for more flexibility in terms of file formats. We pl
 
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+We tested the QuizElement types by testing the display and running the quiz using stringstreams.
+
+We then tested the section types by creating a mock of the QuizElement type that allowed us to check that the `display()` and `do_quiz()` function were being called on all of the child elements when they are called on the Section object.
+
+Lastly we tested the QuestionBankReaders by making them pull questions from their respective test files and testing that the proper output was generated
  
