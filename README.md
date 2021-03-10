@@ -30,9 +30,11 @@ The strategy pattern allows for more flexibility in terms of file formats. We pl
  
  ## Screenshots
  .csv filetype input:
+ 
 ![Screen Shot 2021-03-09 at 7 27 07 PM](https://user-images.githubusercontent.com/76899884/110572165-c1264200-810d-11eb-9c6a-5f7154273ef9.png)
 
 .json filetype input:
+
 ![Screen Shot 2021-03-09 at 7 27 42 PM](https://user-images.githubusercontent.com/76899884/110572172-c4b9c900-810d-11eb-872e-c9cfbe41ad74.png)
 
  ## Installation/Usage
