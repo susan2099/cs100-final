@@ -18,7 +18,6 @@ class QuestionMock : public Question {
 
       bool WasFunctionCalled = false;
 
-
     bool IsAnswerCorrect(std::string input){
         return true;
     }
@@ -34,6 +33,32 @@ class QuestionMock : public Question {
     }
 };
 
+
+
+TEST(Section, RunsDisplayOnChildElements)
+{
+  std::stringstream out;
+  QuestionMock* mock = new QuestionMock();
+  std::vector<QuizElement*> mockItem;
+  mockItem.push_back(mock);
+  Section section("Section 1", mockItem);
+
+  section.display(false,out);
+  EXPECT_TRUE(mock->WasFunctionCalled);
+}
+
+TEST(Section, RunsDoQuizOnChildElements)
+{
+  std::istringstream in;
+  std::stringstream out;
+  QuestionMock* mock = new QuestionMock();
+  std::vector<QuizElement*> mockItem;
+  mockItem.push_back(mock);
+  Section section("Section 1", mockItem);
+
+  section.do_quiz(out, in);
+  EXPECT_TRUE(mock->WasFunctionCalled);
+}
 
 TEST(FillInTheBlankQuestion, DisplayQuestion)
 {
