@@ -16,7 +16,6 @@ public:
         this->description = description;
         this->answer = answer;
     }
-
     virtual bool IsAnswerCorrect(std::string input) = 0;
     virtual std::string get_answer()
     {

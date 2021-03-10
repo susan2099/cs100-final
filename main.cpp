@@ -36,5 +36,10 @@ int main(int argc, char **argv)
     SectionOne.display(true);
     SectionOne.do_quiz();
 
+    /*for (auto p : qVec) {
+	delete p;
+    } 
+    qVec.clear();*/
+
     return 0;
 }
