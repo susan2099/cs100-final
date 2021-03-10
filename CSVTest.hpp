@@ -16,10 +16,10 @@ TEST(CSVTest, EmptyQuiz) {
 	std::vector<QuizElement*> qVec;
 	qVec = CSV.GetQuestions(filename);
 
-	Section Section("Section", qVec);
+	Section Section("Section One", qVec);
 	std::stringstream out;
 	Section.display(true, out); 
-	std::string output = "----Displaying SectionSection with answers----\n----End of Section----Section\n";
+	std::string output = "----Displaying Section \"Section One\" with answers----\n----End of Section----Section One\n";
 	EXPECT_EQ(out.str(), output);
 }
 
@@ -29,10 +29,10 @@ TEST(CSVTest, EveryQuestionTypeQuiz) {
         std::vector<QuizElement*> qVec;
 	qVec = CSV.GetQuestions(filename);
 
-        Section Section(" Space Quiz", qVec);
+        Section Section("Space Quiz", qVec);
         std::stringstream out;
         Section.display(true, out);
-        std::string output = "----Displaying Section Space Quiz with answers----\nWhat is the largest planet in the solar system? A: Saturn; B: Mercury; C: Jupiter\nAnswer:C\nThe sun is a _____.\nAnswer:star\nVenus is the closest to Earth in size.\nAnswer:true\n----End of Section---- Space Quiz\n";
+        std::string output = "----Displaying Section \"Space Quiz\" with answers----\nWhat is the largest planet in the solar system? A: Saturn; B: Mercury; C: Jupiter\nAnswer:C\nThe sun is a _____.\nAnswer:star\nVenus is the closest to Earth in size.\nAnswer:true\n----End of Section----Space Quiz\n";
         EXPECT_EQ(out.str(), output);
 }
 
@@ -42,15 +42,15 @@ TEST(CSVTest, ErrorQuestionTypeQuiz) {
         std::vector<QuizElement*> qVec;
         qVec = CSV.GetQuestions(filename);
 
-        Section Section(" Shark Quiz", qVec);
+        Section Section("Shark Quiz", qVec);
         std::stringstream out;
         Section.display(true, out);
-        std::string output = "----Displaying Section Shark Quiz with answers----\nSharks are fish.\nAnswer:true\nWhat is the biggest shark? A: whale shark; B: great white; C: hammerhead\nAnswer:A\nGreat white sharks have ____ teeth.\nAnswer:300\n----End of Section---- Shark Quiz\n";
+        std::string output = "----Displaying Section \"Shark Quiz\" with answers----\nSharks are fish.\nAnswer:true\nWhat is the biggest shark? A: whale shark; B: great white; C: hammerhead\nAnswer:A\nGreat white sharks have ____ teeth.\nAnswer:300\n----End of Section----Shark Quiz\n";
 	EXPECT_EQ(out.str(), output);
 }
 
 TEST(CSVTest, FullErrorQuestionTypeQuiz) {
-        std::string filename = "csvTestFiles/test1.csv";
+        std::string filename = "csvTestFiles/test4.csv";
         CSVFileReader CSV;
         std::vector<QuizElement*> qVec;
         qVec = CSV.GetQuestions(filename);
@@ -58,7 +58,7 @@ TEST(CSVTest, FullErrorQuestionTypeQuiz) {
         Section Section("Section", qVec);
         std::stringstream out;
         Section.display(true, out);             
-        std::string output = "----Displaying SectionSection with answers----\n----End of Section----Section\n";
+        std::string output = "----Displaying Section \"Section\" with answers----\n----End of Section----Section\n";
         EXPECT_EQ(out.str(), output);
 }
 
@@ -68,10 +68,10 @@ TEST(CSVTest, NoAnswerOutputQuiz) {
         std::vector<QuizElement*> qVec;
         qVec = CSV.GetQuestions(filename);
 
-        Section Section(" Space Quiz", qVec);
+        Section Section("Space Quiz", qVec);
         std::stringstream out;
         Section.display(false, out);
-        std::string output = "----Displaying Section Space Quiz----\nWhat is the largest planet in the solar system? A: Saturn; B: Mercury; C: Jupiter\nThe sun is a _____.\nVenus is the closest to Earth in size.\n----End of Section---- Space Quiz\n";
+        std::string output = "----Displaying Section \"Space Quiz\"----\nWhat is the largest planet in the solar system? A: Saturn; B: Mercury; C: Jupiter\nThe sun is a _____.\nVenus is the closest to Earth in size.\n----End of Section----Space Quiz\n";
         EXPECT_EQ(out.str(), output);
 }
 
