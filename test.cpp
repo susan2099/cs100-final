@@ -7,9 +7,36 @@
 #include "header/Section.hpp"
 #include "CSVTest.hpp"
 
-TEST(FillInTheBlank, DisplayQuestion)
-{
+class QuestionMock : public Question {
+  private:
+    void MarkFunctionCalled(){
+      WasFunctionCalled = true;
+    }
+  
+  public:
+      QuestionMock() : Question("",""){}
 
+      bool WasFunctionCalled = false;
+
+
+    bool IsAnswerCorrect(std::string input){
+        return true;
+    }
+
+    virtual void display(bool includeAnswer, std::ostream& out = std::cout){
+        MarkFunctionCalled();
+    }
+
+
+    virtual int do_quiz(std::ostream& out = std::cout, std::istream& in = std::cin){
+        MarkFunctionCalled();
+        return 1;
+    }
+};
+
+
+TEST(FillInTheBlankQuestion, DisplayQuestion)
+{
   std::stringstream out;
   std::istringstream in;
 
@@ -18,6 +45,90 @@ TEST(FillInTheBlank, DisplayQuestion)
   question.display(false, out);
 
   EXPECT_EQ(out.str(), "Description\n");
+}
+
+TEST(FillInTheBlankQuestion, CheckTrueAnswer)
+{
+  std::stringstream out;
+  std::istringstream in("Answer\n");
+
+  FillInTheBlankQuestion question("Description", "Answer");
+
+  EXPECT_EQ(question.do_quiz(out, in), 1);
+}
+
+TEST(FillInTheBlankQuestion, MarkIncorrectAnswer)
+{
+  std::stringstream out;
+  std::istringstream in("NotTheAnswer\n");
+
+  FillInTheBlankQuestion question("Description", "Answer");
+
+  EXPECT_EQ(question.do_quiz(out, in), 0);
+}
+
+TEST(MultipleChoiceQuestion, DisplayQuestion)
+{
+  std::stringstream out;
+  std::istringstream in;
+
+  MultipleChoiceQuestion question("A,B,C,D", "A");
+
+  question.display(false, out);
+
+  EXPECT_EQ(out.str(), "A,B,C,D\n");
+}
+
+TEST(MultipleChoiceQuestion, CheckTrueAnswer)
+{
+  std::stringstream out;
+  std::istringstream in("A\n");
+
+  MultipleChoiceQuestion question("A,B,C,D", "A");
+
+  EXPECT_EQ(question.do_quiz(out, in), 1);
+}
+
+TEST(MultipleChoiceQuestion, MarkIncorrectAnswer)
+{
+  std::stringstream out;
+  std::istringstream in("\n");
+
+  MultipleChoiceQuestion question("A,B,C,D", "A");
+
+  EXPECT_EQ(question.do_quiz(out, in), 0);
+}
+
+TEST(TrueFalseQuestion, DisplayQuestion)
+{
+  std::stringstream out;
+  std::istringstream in;
+
+  TrueFalseQuestion question("Is water blue?", "True");
+
+  question.display(false, out);
+
+  EXPECT_EQ(out.str(), "Is water blue?\n");
+}
+
+TEST(TrueFalseQuestion, CheckTrueAnswer)
+{
+  std::stringstream out;
+  std::istringstream in("True\n");
+
+  TrueFalseQuestion question("Is water blue", "True");
+
+  EXPECT_EQ(question.do_quiz(out, in), 1);
+}
+
+TEST(TrueFalseQuestion, MarkIncorrectAnswer)
+{
+  std::stringstream out;
+  std::istringstream in("False\n");
+
+  TrueFalseQuestion question("Is water blue", "True");
+
+  EXPECT_EQ(question.do_quiz(out, in), 0);
 }
 
 int main(int argc, char **argv)
