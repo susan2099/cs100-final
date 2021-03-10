@@ -40,7 +40,7 @@ The strategy pattern allows for more flexibility in terms of file formats. We pl
  ## Installation/Usage
  First, the user will clone the github repository recursively on their IDE or command line using "git clone --recursive https://github.com/cs100/final-project-final-project-hmoor011-susan2099-lsi001.git". Alternatively, the user can simply clone the repository using "git clone https://github.com/cs100/final-project-final-project-hmoor011-susan2099-lsi001.git", then run "git submodule update --init --recursive" to pull the modules after the repository has been cloned.
  Then, the user will run "cmake3 ." followed by "make". This will allow to user to finally run the tests.
- Lastly, the user can run the units tests using "./test" and check the quiz using "./quiz <filename>.json" or "./quiz <filename>.csv"
+ Lastly, the user can run the units tests using "./test" and check the quiz using "./quiz 'filename'.json" or "./quiz 'filename'.csv"
  
 
  ## Testing
