@@ -30,8 +30,13 @@ int main(int argc, char** argv){
     //std::vector<QuizElement*> qVec = CSV.GetQuestions(filename);
 
     Section SectionOne("Section One", qVec);
-    SectionOne.display(true);
+    SectionOne.display(false);
     SectionOne.do_quiz();
+
+    /*for (auto p : qVec) {
+	delete p;
+    } 
+    qVec.clear();*/
 
     return 0;
 }

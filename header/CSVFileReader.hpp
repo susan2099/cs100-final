@@ -13,9 +13,15 @@ using namespace std;
 
 class CSVFileReader : public QuestionBankReader {
     public:
+	/*~CSVFileReader() {	// destructor
+    	    while (CSVFileQuestions.size() > 0) {
+        	delete CSVFileQuestions.back();             // delete the pointer
+        	CSVFileQuestions.pop_back();
+    	    }
+	} */
 	std::vector<QuizElement*> GetQuestions(string filename) {
 	    std::vector<QuizElement*> CSVFileQuestions; // initialize empty vector
-	    QuizElement* individualQuestion; // = new Question();
+	    //QuizElement* individualQuestion; // = new Question();
 	    std::ifstream quizFile(filename);	// open file	    
 
 	    while (!quizFile.eof()) { // end of file not reached
