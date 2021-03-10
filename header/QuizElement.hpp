@@ -5,7 +5,6 @@
 
 class QuizElement
 {
-
     public:
     virtual ~QuizElement() = default;
     virtual void display(bool includeAnswer, std::ostream& out = std::cout ) = 0;
