@@ -7,7 +7,7 @@
 #include <vector>
 #include "header/QuestionBankReader.hpp"
 #include "header/CSVFileReader.hpp"
-//#include "header/JsonFileReader.hpp"
+#include "header/JsonFileReader.hpp"
 
 int main(int argc, char **argv)
 {
@@ -19,11 +19,11 @@ int main(int argc, char **argv)
     {
         CSVFileReader CSV;
         qVec = CSV.GetQuestions(filename);
-    } /*
+    } 
     else if ((filename.substr(filename.length() - 5, filename.length())) == ".json") {
-	JsonFileReader JSON;
-	qVec = JSON.GetQuestions(filename);
-    }*/
+	    JsonStrategy JSON;
+	    qVec = JSON.GetQuestions(filename);
+    }
     else
     {
         std::cout << "Invalid filetype. Please submit a different quiz." << std::endl;
