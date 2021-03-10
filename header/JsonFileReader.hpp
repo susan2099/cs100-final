@@ -54,7 +54,7 @@ void from_json(const json& j, JsonQuestionStructure& q) {
 	if (j.contains("ChildElements")){
 		std::cout << "Has Child Item" << std::endl;
 		std::flush(std::cout);
-		q.ChildElements = j.at("ChildElement").get<std::vector<JsonQuestionStructure>>();
+		q.ChildElements = j.at("ChildElements").get<std::vector<JsonQuestionStructure>>();
 
 		std::cout << "Found a node with " << q.ChildElements.size() << " elements" << std::endl;
 	}  
