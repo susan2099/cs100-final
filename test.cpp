@@ -5,6 +5,7 @@
 #include "header/QuestionTypes/MultipleChoiceQuestion.hpp"
 #include "header/QuestionTypes/FillInTheBlankQuestion.hpp"
 #include "header/Section.hpp"
+#include "CSVTest.hpp"
 
 TEST(FillInTheBlank, DisplayQuestion)
 {
