@@ -18,6 +18,12 @@ public:
         ChildElements = childElements;
     }
 
+    ~Section(){
+        for (int i = 0; i < ChildElements.size(); i++){
+            delete ChildElements[i];
+        }
+    }
+
     virtual void display(bool includeAnswer, std::ostream& out = std::cout){
         out << "----Displaying Section \"" << SectionName;
         if (includeAnswer) {

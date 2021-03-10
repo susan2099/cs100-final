@@ -32,8 +32,6 @@ int main(int argc, char **argv)
         std::cout << "Invalid filetype. Please submit a different quiz." << std::endl;
     }
 
-    //std::vector<QuizElement*> qVec = CSV.GetQuestions(filename);
-
     Section SectionOne("Main", qVec);
     SectionOne.display(true);
     SectionOne.do_quiz();
