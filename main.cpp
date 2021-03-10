@@ -11,10 +11,13 @@
 
 int main(int argc, char **argv)
 {
-    std::string filename = argv[1];
+    std::string filename;
+    if (argc == 2) filename = argv[1];
+    else filename = "example.json";
+
+
     CSVFileReader CSV;
     std::vector<QuizElement *> qVec;
-
     if ((filename.substr(filename.length() - 4, filename.length())) == ".csv")
     {
         CSVFileReader CSV;

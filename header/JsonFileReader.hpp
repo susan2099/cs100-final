@@ -19,16 +19,49 @@ struct JsonQuestionStructure {
 	std::string QuestionType;
 	std::string Description;
 	std::string Answer;
+	std::vector<JsonQuestionStructure> ChildElements; // For sections
 };
 
-void to_json(json& j, const JsonQuestionStructure& q) {
-    j = json{{"QuestionType", q.QuestionType}, {"Description", q.Description}, {"Answer", q.Answer}};
+QuizElement* to_quiz_element(const JsonQuestionStructure& question){
+	QuizElement *element;
+
+	std::cout << "Reading an element, {" << question.Description << ", " << question.Answer << "}" << std::endl;
+	std::string type = question.QuestionType;
+	if (type == "MC"){
+		element = new MultipleChoiceQuestion(question.Description, question.Answer);
+	} else if (type == "TF"){
+		element = new TrueFalseQuestion(question.Description, question.Answer);
+	} else if (type == "Fill"){
+		element = new FillInTheBlankQuestion(question.Description, question.Answer);
+	} else if (type == "Section") {
+		std::vector<QuizElement*> childElements;
+		for (auto childElement : question.ChildElements){
+			std::cout << "Pushing Child Element to section" << std::endl;
+			childElements.push_back(to_quiz_element(childElement));
+		}
+		element = new Section(question.Description, childElements);
+	} else {
+		perror("Question type in the json file is invalid");
+	}
+
+	return element;
 }
 
 void from_json(const json& j, JsonQuestionStructure& q) {
 	j.at("QuestionType").get_to(q.QuestionType);
 	j.at("Description").get_to(q.Description);
 	j.at("Answer").get_to(q.Answer);
+	if (j.contains("ChildElements")){
+		std::cout << "Has Child Item" << std::endl;
+		std::flush(std::cout);
+		q.ChildElements = j.at("ChildElement").get<std::vector<JsonQuestionStructure>>();
+
+		std::cout << "Found a node with " << q.ChildElements.size() << " elements" << std::endl;
+	}  
+}
+
+void to_json(json& j, const JsonQuestionStructure q) {
+	perror("unimplemented");
 }
 
 
@@ -44,21 +77,7 @@ public:
 		std::vector<JsonQuestionStructure> questions = j.get<std::vector<JsonQuestionStructure>>();
 		std::vector<QuizElement *> jsonVector;
 		for (auto question : questions){
-
-			QuizElement* element;
-			
-			std::string type = question.QuestionType;
-			if (type == "MC"){
-				element = new MultipleChoiceQuestion(question.Description, question.Answer);
-			} else if (type == "TF"){
-				element = new TrueFalseQuestion(question.Description, question.Answer);
-			} else if (type == "Fill"){
-				element = new FillInTheBlankQuestion(question.Description, question.Answer);
-			} else {
-				perror("Question type in the json file is invalid");
-			}
-
-			jsonVector.push_back(element);
+			jsonVector.push_back(to_quiz_element(question));
 		}
 
 
