@@ -42,8 +42,6 @@ The strategy pattern allows for more flexibility in terms of file formats. We pl
  Then, the user will run "cmake3 ." followed by "make". This will allow to user to finally run the tests.
  Lastly, the user can run the units tests using "./test" and check the quiz using "./quiz <filename>.json" or "./quiz <filename>.csv"
  
-- clone recursively
-- bring in test file
 
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
