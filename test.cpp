@@ -123,39 +123,6 @@ TEST(MultipleChoiceQuestion, MarkIncorrectAnswer)
 
   EXPECT_EQ(question.do_quiz(out, in), 0);
 }
-
-TEST(TrueFalseQuestion, DisplayQuestion)
-{
-  std::stringstream out;
-  std::istringstream in;
-
-  TrueFalseQuestion question("Is water blue?", "True");
-
-  question.display(false, out);
-
-  EXPECT_EQ(out.str(), "Is water blue?\n");
-}
-
-TEST(TrueFalseQuestion, CheckTrueAnswer)
-{
-  std::stringstream out;
-  std::istringstream in("True\n");
-
-  TrueFalseQuestion question("Is water blue", "True");
-
-  EXPECT_EQ(question.do_quiz(out, in), 1);
-}
-
-TEST(TrueFalseQuestion, MarkIncorrectAnswer)
-{
-  std::stringstream out;
-  std::istringstream in("False\n");
-
-  TrueFalseQuestion question("Is water blue", "True");
-
-  EXPECT_EQ(question.do_quiz(out, in), 0);
-}
-
 int main(int argc, char **argv)
 {
   ::testing::InitGoogleTest(&argc, argv);
