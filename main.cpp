@@ -7,24 +7,29 @@
 #include <vector>
 #include "header/QuestionBankReader.hpp"
 #include "header/CSVFileReader.hpp"
-//#include "header/JsonFileReader.hpp"
+#include "header/JsonFileReader.hpp"
 
-int main(int argc, char** argv){
-    //std::string filename = "example.csv";
-    std::string filename = argv[1];
+int main(int argc, char **argv)
+{
+    std::string filename;
+    if (argc == 2) filename = argv[1];
+    else filename = "example.json";
+
+
     CSVFileReader CSV;
-    std::vector<QuizElement*> qVec;
-
-    if ((filename.substr(filename.length() - 4, filename.length())) == ".csv") {
-	CSVFileReader CSV;
-	qVec = CSV.GetQuestions(filename);
-    }/*
+    std::vector<QuizElement *> qVec;
+    if ((filename.substr(filename.length() - 4, filename.length())) == ".csv")
+    {
+        CSVFileReader CSV;
+        qVec = CSV.GetQuestions(filename);
+    } 
     else if ((filename.substr(filename.length() - 5, filename.length())) == ".json") {
-	JsonFileReader JSON;
-	qVec = JSON.GetQuestions(filename);
-    }*/
-    else {
-	std::cout << "Invalid filetype. Please submit a different quiz." << std::endl;
+	    JsonStrategy JSON;
+	    qVec = JSON.GetQuestions(filename);
+    }
+    else
+    {
+        std::cout << "Invalid filetype. Please submit a different quiz." << std::endl;
     }
 
     //std::vector<QuizElement*> qVec = CSV.GetQuestions(filename);

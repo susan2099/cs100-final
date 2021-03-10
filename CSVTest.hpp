@@ -13,8 +13,8 @@
 #include "header/QuestionBankReader.hpp"
 #include "header/CSVFileReader.hpp"
 
-TEST(CSVTest, Test1) {
-
+TEST(CSVTest, Test1)
+{
 }
 
 #endif // __CSV_TEST_HPP__

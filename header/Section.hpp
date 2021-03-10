@@ -5,7 +5,7 @@
 #ifndef SECTION_H
 #define SECTION_H
 
-class Section : QuizElement
+class Section : public QuizElement
 {
 private:
     std::string SectionName;
@@ -19,9 +19,11 @@ public:
     }
 
     virtual void display(bool includeAnswer, std::ostream& out = std::cout){
-        out << "----Displaying Section" << SectionName;
+        out << "----Displaying Section \"" << SectionName;
         if (includeAnswer) {
-            out << " with answers";
+            out << "\" with answers";
+        } else {
+            out << "\"";
         }
         out << "----" << std::endl;
         for (auto element : ChildElements){
