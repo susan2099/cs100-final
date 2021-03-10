@@ -38,7 +38,9 @@ The strategy pattern allows for more flexibility in terms of file formats. We pl
 ![Screen Shot 2021-03-09 at 7 27 42 PM](https://user-images.githubusercontent.com/76899884/110572172-c4b9c900-810d-11eb-872e-c9cfbe41ad74.png)
 
  ## Installation/Usage
- > Instructions on installing and running your application
+- clone recursively
+- bring in test file
+
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
