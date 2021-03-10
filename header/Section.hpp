@@ -43,7 +43,7 @@ public:
         int totalScore = 0;
         for (auto element : ChildElements)
         {
-            totalScore += element->do_quiz();
+            totalScore += element->total_score();
         }
         return totalScore;
     }

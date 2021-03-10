@@ -34,7 +34,8 @@ int main(int argc, char **argv)
 
     Section SectionOne("Main", qVec);
     SectionOne.display(true);
-    SectionOne.do_quiz();
+    int result = SectionOne.do_quiz();
+    cout << "Score : " << result << " / " << SectionOne.total_score() << std::endl;
 
     /*for (auto p : qVec) {
 	delete p;
