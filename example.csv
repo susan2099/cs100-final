@@ -3,16 +3,5 @@ TF,The sky is blue.,True
 Fill,What is your favorite color?,red
 MC,What is salt's chemical formula? A: H20; B: CO2; C: NaCL; D: NH3,C
 Fill,Do you like coffee?,yes
-<<<<<<< HEAD
-<<<<<<< HEAD
 ERROR,ERROR,ERROR
 TF,You can see the Great Wall from space.,False
-ERROR,ERROR,ERROR
-=======
-TF,You can see the Great Wall from space.,false
->>>>>>> f86b23cd46be81a15d987d34f372dd40881ecdb8
-=======
-ERROR,ERROR,ERROR
-TF,You can see the Great Wall from space.,False
-ERROR,ERROR,ERROR
->>>>>>> 387ba0d229d54ad49acb6b48acac28d90ce4471b
