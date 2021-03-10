@@ -40,20 +40,24 @@ class CSVFileReader : public QuestionBankReader {
 
 		//std::cout << type << "   " << desc << "   " << answer << std::endl;
 
-		if (type == "MC") {
-		    CSVFileQuestions.push_back(new MultipleChoiceQuestion(desc, answer));
+			if (type == "MC")
+			{
+				CSVFileQuestions.push_back(new MultipleChoiceQuestion(desc, answer));
+			}
+			else if (type == "TF")
+			{
+				CSVFileQuestions.push_back(new TrueFalseQuestion(desc, answer));
+			}
+			else if (type == "Fill")
+			{
+				CSVFileQuestions.push_back(new FillInTheBlankQuestion(desc, answer));
+			}
+			// else ==> error message?
+
 		}
-		else if (type == "TF") {
-		    CSVFileQuestions.push_back(new TrueFalseQuestion(desc, answer));
-		}
-		else if (type == "Fill") {
-		    CSVFileQuestions.push_back(new FillInTheBlankQuestion(desc, answer));
-		}
-		// else ==> error message?
-	    }
-	    //std::cout << CSVFileQuestions.size() << endl;
-	    return CSVFileQuestions;	// return the filled vector
+		//std::cout << CSVFileQuestions.size() << endl;
+		return CSVFileQuestions; // return the filled vector
 	}
 };
 
- #endif
+#endif
