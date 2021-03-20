@@ -91,6 +91,18 @@ TEST(FillInTheBlankQuestion, MarkIncorrectAnswer)
   EXPECT_EQ(question.do_quiz(out, in), 0);
 }
 
+
+TEST(FillInTheBlankQuestion, MarkLongAnswer)
+{
+  std::stringstream out;
+  std::istringstream in("abcdefghijklmnopqrstuvwxyz\n");
+
+  FillInTheBlankQuestion question("Description", "Answer");
+
+  EXPECT_EQ(question.do_quiz(out, in), 0);
+}
+
+
 TEST(MultipleChoiceQuestion, DisplayQuestion)
 {
   std::stringstream out;
@@ -120,6 +132,15 @@ TEST(MultipleChoiceQuestion, MarkIncorrectAnswer)
 
   MultipleChoiceQuestion question("A,B,C,D", "A");
 
+  EXPECT_EQ(question.do_quiz(out, in), 0);
+}
+
+TEST(MultipleChoiceQuestion, MarkNoAnswerChoice) {
+  std::stringstream out;
+  std::istringstream in("P\n");
+
+  MultipleChoiceQuestion question("A,B,C,D", "A");
+  
   EXPECT_EQ(question.do_quiz(out, in), 0);
 }
 
@@ -155,6 +176,14 @@ TEST(TrueFalseQuestion, MarkIncorrectAnswer)
   EXPECT_EQ(question.do_quiz(out, in), 0);
 }
 
+TEST(TrueFalseQuestion, MarkNoAnswerChoice ) {
+  std::stringstream out;
+  std::istringstream in("Hi\n");
+
+  TrueFalseQuestion question("Is water blue", "True");
+
+  EXPECT_EQ(question.do_quiz(out, in), 0);
+}
 int main(int argc, char **argv)
 {
   ::testing::InitGoogleTest(&argc, argv);
